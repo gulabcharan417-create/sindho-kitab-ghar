@@ -56,6 +56,16 @@
     position:sticky;
     top:0;
     z-index:50;
+    overflow:hidden;
+  }
+  .bhittai-watermark{
+    position:absolute;
+    right:4%;
+    top:50%;
+    transform:translateY(-50%);
+    width:130px;
+    height:auto;
+    pointer-events:none;
   }
   .logo{
     font-family:'Playfair Display',serif;
@@ -316,6 +326,13 @@
   }
   .how-step h4{font-size:14.5px;margin-bottom:4px;}
   .how-step p{font-size:12.5px;color:var(--ink-soft);}
+  .sindhi-line{
+    font-family:'Noto Nastaliq Urdu',serif;
+    font-size:14px;
+    direction:rtl;
+    color:var(--ajrak-indigo);
+    margin-top:2px;
+  }
 
   /* ---------- Cart drawer ---------- */
   .cart-drawer{
@@ -417,10 +434,22 @@
     background:var(--ajrak-indigo);
     color:#C4CCDA;
     text-align:center;
-    padding:24px 6%;
+    padding:22px 6% 16px;
     font-size:12.5px;
   }
   footer span{color:var(--ajrak-mustard);}
+  .footer-brand{font-weight:500;margin-bottom:10px;}
+  .footer-contact{margin-bottom:14px;}
+  .footer-contact a{color:#C4CCDA;transition:color .2s;}
+  .footer-contact a:hover{color:var(--ajrak-mustard);}
+  .footer-contact .dot{margin:0 10px;color:var(--ajrak-mustard);}
+  .footer-credit{
+    font-size:11px;
+    color:#7C8AA0;
+    text-align:right;
+    max-width:1200px;
+    margin:0 auto;
+  }
 
   @media(max-width:640px){
     nav{display:none;}
@@ -432,6 +461,16 @@
 <body>
 
 <header>
+  <svg class="bhittai-watermark" viewBox="0 0 200 100" aria-hidden="true">
+    <g fill="#E4C15A" opacity="0.16">
+      <path d="M100 8 C78 8 62 24 62 44 C62 54 66 62 72 68 L68 80 C68 84 72 87 76 85 L88 78 C92 79 96 80 100 80 C122 80 138 64 138 44 C138 24 122 8 100 8 Z"/>
+      <path d="M74 40 C70 20 84 4 100 4 C116 4 130 20 126 40 C124 30 116 22 100 22 C84 22 76 30 74 40 Z"/>
+      <path d="M55 88 C60 74 78 66 100 66 C122 66 140 74 145 88 L145 96 L55 96 Z"/>
+      <rect x="30" y="60" width="4" height="34" rx="2"/>
+      <ellipse cx="26" cy="58" rx="10" ry="7"/>
+      <path d="M20 60 Q26 50 32 60"/>
+    </g>
+  </svg>
   <div class="logo">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D89A1E" stroke-width="1.6" style="flex-shrink:0"><path d="M12 5c-2-1.5-5-2-8-1v14c3-1 6-.5 8 1 2-1.5 5-2 8-1V4c-3-1-6-.5-8 1Z"/><path d="M12 5v14"/></svg>
     <div><span>Sindho</span> Kitab Ghar<span class="sub">Sindh dharti ki kitabon ka ghar</span></div>
@@ -492,6 +531,7 @@
 <div class="categories" id="categories">
   <div class="cat-chip active" data-cat="all">Sab kuch</div>
   <div class="cat-chip" data-cat="urdu">Urdu Adab</div>
+  <div class="cat-chip" data-cat="sindhi">Sindhi Adab</div>
   <div class="cat-chip" data-cat="novel">Novels</div>
   <div class="cat-chip" data-cat="exam">Exam Prep</div>
   <div class="cat-chip" data-cat="kids">Bachon ki Kitabein</div>
@@ -504,28 +544,28 @@
   <div class="how" id="how">
     <div class="how-step">
       <div class="num">1</div>
-      <h4>Book chuno</h4>
-      <p>Cart mein add karo</p>
+      <h4>Choose a book</h4>
+      <p class="sindhi-line">ڪتاب چونڊيو</p>
     </div>
     <div class="how-step">
       <div class="num">2</div>
-      <h4>Cart kholo</h4>
-      <p>Apni list check karo</p>
+      <h4>Open your cart</h4>
+      <p class="sindhi-line">ٽوڪري کوليو</p>
     </div>
     <div class="how-step">
       <div class="num">3</div>
-      <h4>WhatsApp par bhejo</h4>
-      <p>Ek click mein order chala jaye</p>
+      <h4>Send via WhatsApp</h4>
+      <p class="sindhi-line">واٽس ائپ تي موڪليو</p>
     </div>
     <div class="how-step">
       <div class="num">4</div>
-      <h4>Delivery</h4>
-      <p>2-3 din mein, cash on delivery</p>
+      <h4>Delivery in 2-3 days</h4>
+      <p class="sindhi-line">پهچائڻ</p>
     </div>
   </div>
 
   <p style="text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:14px;">
-    Order confirm hone ke baad, book Urdu Bazar se mangwa kar 2-3 din mein aapke ghar tak pohanchai jayegi.
+    Once your order is confirmed, the book is sourced and delivered within 2-3 days.
   </p>
 </main>
 
@@ -556,7 +596,15 @@
 
 <div class="ajrak-strip"></div>
 <footer>
-  Sindho Kitab Ghar — <span>All over Sindh</span>, poore Sindh mein books.
+  <div class="footer-brand">Sindho Kitab Ghar — <span>All over Sindh</span></div>
+  <div class="footer-contact">
+    <a href="tel:03053627905">0305 3627905</a>
+    <span class="dot">•</span>
+    <a href="https://wa.me/923053627905" target="_blank">WhatsApp</a>
+    <span class="dot">•</span>
+    <a href="mailto:gulabcharan417@gmail.com">gulabcharan417@gmail.com</a>
+  </div>
+  <div class="footer-credit">Charan Gulab</div>
 </footer>
 
 <script>
@@ -573,6 +621,13 @@ const books = [
   {id:10, title:"Bachon Ki Kahaniyan", author:"Mixed Authors", price:300, old:350, cat:"kids"},
   {id:11, title:"Entry Test MDCAT Guide", author:"Compiled Guide", price:1500, old:1700, cat:"exam"},
   {id:12, title:"Manto Ke Afsane", author:"Sa'adat Hasan Manto", price:490, old:null, cat:"urdu"},
+  {id:13, title:"Raja Gidh", author:"Bano Qudsia", price:600, old:700, cat:"novel"},
+  {id:14, title:"Aangan", author:"Khadija Mastoor", price:550, old:null, cat:"novel"},
+  {id:15, title:"NTS General Knowledge Guide", author:"Compiled Guide", price:800, old:950, cat:"exam"},
+  {id:16, title:"Alif Laila (Bachon ke liye)", author:"Mukhtasar Ta'aruf", price:350, old:null, cat:"kids"},
+  {id:17, title:"Shah Jo Risalo", author:"Shah Abdul Latif Bhittai", price:700, old:null, cat:"sindhi"},
+  {id:18, title:"Sur Aur Sarod", author:"Sheikh Ayaz", price:550, old:650, cat:"sindhi"},
+  {id:19, title:"Sindhi Lok Kahaniyan", author:"Mukhtalif Musannifeen", price:400, old:null, cat:"sindhi"},
 ];
 
 let cart = {};
