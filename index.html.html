@@ -1,0 +1,634 @@
+<html>
+        <head><title>Downloaded HTML</title></head>
+        <body>
+            <pre style="white-space: pre-wrap; word-wrap: break-word;"><!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sindho Kitab Ghar — Online Book Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Noto+Nastaliq+Urdu:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ajrak:#0B1F3A;
+    --navy-light:#132B4D;
+    --teal:#0F6E56;
+    --teal-light:#1D9E75;
+    --gold:#C9A227;
+    --gold-light:#E4C15A;
+    --ajrak-red:#A32D2D;
+    --ajrak-red-dark:#791F1F;
+    --ajrak-indigo:#1B3A5C;
+    --ajrak-mustard:#D89A1E;
+    --cream:#F7F4EC;
+    --paper:#FFFFFF;
+    --ink:#1B2430;
+    --ink-soft:#5B6472;
+    --line:#E4DFD1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  a{text-decoration:none;color:inherit;}
+
+  .ajrak-strip{
+    height:14px;
+    width:100%;
+    background:
+      repeating-linear-gradient(45deg,
+        var(--ajrak-red) 0px, var(--ajrak-red) 8px,
+        var(--ajrak-mustard) 8px, var(--ajrak-mustard) 16px,
+        var(--ajrak-indigo) 16px, var(--ajrak-indigo) 24px,
+        var(--cream) 24px, var(--cream) 26px
+      );
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--navy);
+    color:#fff;
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:50;
+  }
+  .logo{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo span{color:var(--ajrak-mustard);}
+  .logo .sub{
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    font-weight:500;
+    color:#B7C0CF;
+    display:block;
+    letter-spacing:1px;
+  }
+  nav ul{display:flex;gap:28px;list-style:none;}
+  nav a{font-size:14px;font-weight:500;color:#DCE3EE;transition:color .2s;}
+  nav a:hover{color:var(--gold-light);}
+  .cart-btn{
+    background:var(--gold);
+    color:var(--navy);
+    padding:9px 18px;
+    border-radius:6px;
+    font-weight:600;
+    font-size:14px;
+    border:none;
+    cursor:pointer;
+    position:relative;
+  }
+  .cart-count{
+    position:absolute;
+    top:-8px;right:-8px;
+    background:var(--teal-light);
+    color:#fff;
+    font-size:11px;
+    width:20px;height:20px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(180deg,var(--navy) 0%, var(--ajrak-indigo) 100%);
+    color:#fff;
+    padding:70px 6% 90px;
+    text-align:center;
+    position:relative;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:40px;
+    background:var(--cream);
+    border-radius:50% 50% 0 0 / 100% 100% 0 0;
+  }
+  .hero-heritage{
+    position:absolute;
+    left:0;right:0;bottom:36px;
+    width:100%;
+    height:150px;
+    pointer-events:none;
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+  }
+  .hero-urdu{
+    font-family:'Noto Nastaliq Urdu',serif;
+    font-size:30px;
+    color:var(--ajrak-mustard);
+    margin-bottom:14px;
+    direction:rtl;
+  }
+  .hero-tagline{
+    font-size:12.5px;
+    letter-spacing:2px;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    margin-bottom:8px;
+    font-weight:500;
+  }
+  .hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:40px;
+    font-weight:600;
+    max-width:640px;
+    margin:0 auto 16px;
+  }
+  .hero p{
+    color:#C4CCDA;
+    font-size:16px;
+    max-width:520px;
+    margin:0 auto 30px;
+  }
+  .hero-search{
+    max-width:480px;
+    margin:0 auto;
+    display:flex;
+    background:#fff;
+    border-radius:8px;
+    overflow:hidden;
+  }
+  .hero-search input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:14px 16px;
+    font-size:14px;
+    font-family:'Inter',sans-serif;
+  }
+  .hero-search button{
+    background:var(--teal);
+    color:#fff;
+    border:none;
+    padding:0 22px;
+    font-weight:600;
+    cursor:pointer;
+    font-size:14px;
+  }
+
+  /* ---------- Categories ---------- */
+  .categories{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding:36px 6% 10px;
+  }
+  .cat-chip{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:8px 18px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:.2s;
+  }
+  .cat-chip.active, .cat-chip:hover{
+    background:var(--ajrak-red);
+    color:#fff;
+    border-color:var(--ajrak-red);
+  }
+
+  /* ---------- Book grid ---------- */
+  main{padding:20px 6% 60px;max-width:1200px;margin:0 auto;}
+  .section-title{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    margin:36px 0 20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .section-title::before{
+    content:"";
+    width:5px;height:22px;
+    background:var(--ajrak-mustard);
+    display:inline-block;
+    border-radius:2px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:22px;
+  }
+  .book-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    transition:transform .2s, box-shadow .2s;
+    display:flex;
+    flex-direction:column;
+  }
+  .book-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 24px rgba(11,31,58,0.08);
+  }
+  .book-cover{
+    height:190px;
+    background:linear-gradient(135deg,var(--ajrak-indigo),var(--navy));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    border-bottom:4px solid var(--ajrak-red);
+  }
+  .book-cover .title-on-cover{
+    font-family:'Noto Nastaliq Urdu',serif;
+    color:var(--ajrak-mustard);
+    font-size:20px;
+    text-align:center;
+    padding:0 16px;
+    direction:rtl;
+  }
+  .badge{
+    position:absolute;
+    top:10px;left:10px;
+    background:var(--ajrak-mustard);
+    color:var(--ajrak-red-dark);
+    font-size:11px;
+    font-weight:600;
+    padding:3px 9px;
+    border-radius:4px;
+  }
+  .book-info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .book-title{font-size:15px;font-weight:600;color:var(--ink);}
+  .book-author{font-size:12.5px;color:var(--ink-soft);}
+  .book-bottom{
+    margin-top:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:8px;
+  }
+  .price{font-size:16px;font-weight:700;color:var(--ajrak-red);}
+  .old-price{font-size:12px;color:var(--ink-soft);text-decoration:line-through;margin-right:4px;}
+  .add-btn{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    padding:7px 14px;
+    border-radius:6px;
+    font-size:12.5px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .add-btn:hover{background:var(--teal);}
+
+  /* ---------- How it works ---------- */
+  .how{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:34px 30px;
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:24px;
+  }
+  .how-step{text-align:center;}
+  .how-step .num{
+    width:36px;height:36px;
+    background:var(--cream);
+    border:2px solid var(--gold);
+    color:var(--navy);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;
+    margin:0 auto 10px;
+  }
+  .how-step h4{font-size:14.5px;margin-bottom:4px;}
+  .how-step p{font-size:12.5px;color:var(--ink-soft);}
+
+  /* ---------- Cart drawer ---------- */
+  .cart-drawer{
+    position:fixed;
+    top:0;right:-380px;
+    width:360px;
+    height:100vh;
+    background:var(--paper);
+    box-shadow:-6px 0 24px rgba(0,0,0,0.12);
+    transition:right .3s ease;
+    z-index:100;
+    display:flex;
+    flex-direction:column;
+  }
+  .cart-drawer.open{right:0;}
+  .cart-header{
+    background:var(--navy);
+    color:#fff;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .cart-header h3{font-family:'Playfair Display',serif;font-size:18px;}
+  .close-btn{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;}
+  .cart-items{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px;}
+  .cart-item{
+    display:flex;justify-content:space-between;align-items:center;
+    border-bottom:1px solid var(--line);
+    padding-bottom:10px;
+  }
+  .cart-item-name{font-size:13.5px;font-weight:500;}
+  .cart-item-qty{font-size:12px;color:var(--ink-soft);}
+  .remove-x{background:none;border:none;color:#B33;cursor:pointer;font-size:13px;}
+  .cart-empty{color:var(--ink-soft);font-size:13.5px;text-align:center;margin-top:40px;}
+  .cart-footer{padding:18px 20px;border-top:1px solid var(--line);}
+  .cart-total{display:flex;justify-content:space-between;font-weight:700;font-size:16px;margin-bottom:14px;}
+  .whatsapp-btn{
+    width:100%;
+    background:#25D366;
+    color:#fff;
+    border:none;
+    padding:13px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:14.5px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+  .overlay{
+    position:fixed;inset:0;
+    background:rgba(11,31,58,0.4);
+    z-index:90;
+    display:none;
+  }
+  .overlay.show{display:block;}
+
+  footer{
+    background:var(--ajrak-indigo);
+    color:#C4CCDA;
+    text-align:center;
+    padding:24px 6%;
+    font-size:12.5px;
+  }
+  footer span{color:var(--ajrak-mustard);}
+
+  @media(max-width:640px){
+    nav{display:none;}
+    .hero h1{font-size:28px;}
+    .cart-drawer{width:100%;right:-100%;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D89A1E" stroke-width="1.6" style="flex-shrink:0"><path d="M12 5c-2-1.5-5-2-8-1v14c3-1 6-.5 8 1 2-1.5 5-2 8-1V4c-3-1-6-.5-8 1Z"/><path d="M12 5v14"/></svg>
+    <div><span>Sindho</span> Kitab Ghar<span class="sub">Sindh dharti ki kitabon ka ghar</span></div>
+  </div>
+  <nav><ul>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#how">How to order</a></li>
+  </ul></nav>
+  <button class="cart-btn" onclick="toggleCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
+</header>
+
+<div class="ajrak-strip"></div>
+
+<section class="hero">
+
+  <svg class="hero-heritage" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+    <polygon points="0,220 0,150 90,95 180,135 260,65 340,115 420,55 500,105 580,45 660,100 740,60 820,110 900,50 980,105 1060,70 1140,120 1200,85 1200,220"
+      fill="#1B3A5C" opacity="0.55"/>
+    <g fill="#0B1F3A" opacity="0.5">
+      <rect x="1020" y="130" width="14" height="40"/>
+      <rect x="1042" y="115" width="16" height="55"/>
+      <rect x="1066" y="140" width="12" height="30"/>
+      <rect x="1086" y="120" width="18" height="50"/>
+      <circle cx="1050" cy="110" r="6"/>
+      <rect x="1047" y="98" width="6" height="14"/>
+    </g>
+    <g fill="#A32D2D" opacity="0.6">
+      <path d="M40,200 Q85,132 130,200 Z"/>
+      <path d="M158,200 Q203,132 248,200 Z"/>
+      <path d="M276,200 Q321,132 366,200 Z"/>
+      <path d="M394,200 Q439,132 484,200 Z"/>
+      <path d="M512,200 Q557,132 602,200 Z"/>
+      <path d="M630,200 Q675,132 720,200 Z"/>
+      <path d="M748,200 Q793,132 838,200 Z"/>
+      <path d="M866,200 Q911,132 956,200 Z"/>
+      <rect x="30" y="196" width="936" height="8"/>
+    </g>
+    <path d="M0,196 C150,178 300,214 450,192 C600,170 750,206 900,188 C1050,172 1150,190 1200,182 L1200,220 L0,220 Z"
+      fill="#0F6E56" opacity="0.85"/>
+    <path d="M0,206 C160,192 320,222 480,204 C640,186 800,214 960,200 C1080,190 1150,202 1200,196 L1200,220 L0,220 Z"
+      fill="#1D9E75" opacity="0.5"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tagline">Sindh diyan kitaban, tumhare dar tak</div>
+    <div class="hero-urdu">سنڌو ڪتاب گھر</div>
+    <h1>Books ghar baithe order karo, seedha WhatsApp par</h1>
+    <p>Sindhi-Urdu adab, novels, aur exam books — sab ek jagah. Cart mein daalo, ek click mein order confirm karo.</p>
+    <div class="hero-search">
+      <input type="text" id="searchInput" placeholder="Book ya writer ka naam likho..." oninput="filterBooks()">
+      <button onclick="filterBooks()">Search</button>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="categories" id="categories">
+  <div class="cat-chip active" data-cat="all">Sab kuch</div>
+  <div class="cat-chip" data-cat="urdu">Urdu Adab</div>
+  <div class="cat-chip" data-cat="novel">Novels</div>
+  <div class="cat-chip" data-cat="exam">Exam Prep</div>
+  <div class="cat-chip" data-cat="kids">Bachon ki Kitabein</div>
+</div>
+
+<main>
+  <div class="section-title" id="books">Naye aur mash'hoor</div>
+  <div class="grid" id="bookGrid"></div>
+
+  <div class="how" id="how">
+    <div class="how-step">
+      <div class="num">1</div>
+      <h4>Book chuno</h4>
+      <p>Cart mein add karo</p>
+    </div>
+    <div class="how-step">
+      <div class="num">2</div>
+      <h4>Cart kholo</h4>
+      <p>Apni list check karo</p>
+    </div>
+    <div class="how-step">
+      <div class="num">3</div>
+      <h4>WhatsApp par bhejo</h4>
+      <p>Ek click mein order chala jaye</p>
+    </div>
+    <div class="how-step">
+      <div class="num">4</div>
+      <h4>Delivery</h4>
+      <p>Cash on delivery, Sindh ke sheharon mein</p>
+    </div>
+  </div>
+</main>
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Aapka Cart</h3>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">Rs. 0</span></div>
+    <button class="whatsapp-btn" onclick="orderOnWhatsapp()"><svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2Zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.6.7 1.9.8 2 .1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.7.8 2 .9.3.2.5.2.6.4.1.2.1.9-.1 1.4Z"/></svg> WhatsApp par order karo</button>
+  </div>
+</div>
+
+<div class="ajrak-strip"></div>
+<footer>
+  Sindho Kitab Ghar — <span>All cites of sindh</span>, poore Sindh mein books. (Ye ek demo website hai)
+</footer>
+
+<script>
+const books = [
+  {id:1, title:"Raakh", author:"Mustansar Hussain Tarar", price:650, old:800, cat:"urdu"},
+  {id:2, title:"Aag Ka Darya", author:"Qurratulain Hyder", price:900, old:null, cat:"urdu"},
+  {id:3, title:"Peer-e-Kamil", author:"Umera Ahmed", price:550, old:650, cat:"novel"},
+  {id:4, title:"Shahab Nama", author:"Qudratullah Shahab", price:750, old:null, cat:"urdu"},
+  {id:5, title:"Bano", author:"Razia Butt", price:480, old:null, cat:"novel"},
+  {id:6, title:"CSS Solved Papers", author:"Compiled Guide", price:1200, old:1450, cat:"exam"},
+  {id:7, title:"Udaas Naslein", author:"Abdullah Hussain", price:820, old:null, cat:"urdu"},
+  {id:8, title:"Nikhat-e-Urdu Shairi", author:"Mukhtalif Sho'ara", price:400, old:null, cat:"urdu"},
+  {id:9, title:"Amar Bail", author:"Ashfaq Ahmed", price:520, old:null, cat:"novel"},
+  {id:10, title:"Bachon Ki Kahaniyan", author:"Mixed Authors", price:300, old:350, cat:"kids"},
+  {id:11, title:"Entry Test MDCAT Guide", author:"Compiled Guide", price:1500, old:1700, cat:"exam"},
+  {id:12, title:"Manto Ke Afsane", author:"Sa'adat Hasan Manto", price:490, old:null, cat:"urdu"},
+];
+
+let cart = {};
+let activeCat = "all";
+
+function renderBooks(){
+  const grid = document.getElementById('bookGrid');
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  grid.innerHTML = "";
+  books
+    .filter(b => activeCat==="all" || b.cat===activeCat)
+    .filter(b => b.title.toLowerCase().includes(query) || b.author.toLowerCase().includes(query))
+    .forEach(b=>{
+      const card = document.createElement('div');
+      card.className = 'book-card';
+      card.innerHTML = `
+        <div class="book-cover">
+          ${b.old ? '<div class="badge">Sale</div>' : ''}
+          <div class="title-on-cover">${b.title}</div>
+        </div>
+        <div class="book-info">
+          <div class="book-title">${b.title}</div>
+          <div class="book-author">${b.author}</div>
+          <div class="book-bottom">
+            <div>${b.old ? `<span class="old-price">Rs.${b.old}</span>`:''}<span class="price">Rs.${b.price}</span></div>
+            <button class="add-btn" onclick="addToCart(${b.id})">Cart mein daalo</button>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+}
+
+function filterBooks(){ renderBooks(); }
+
+document.getElementById('categories').addEventListener('click', e=>{
+  if(!e.target.classList.contains('cat-chip')) return;
+  document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));
+  e.target.classList.add('active');
+  activeCat = e.target.dataset.cat;
+  renderBooks();
+});
+
+function addToCart(id){
+  cart[id] = (cart[id]||0) + 1;
+  updateCartUI();
+}
+
+function removeFromCart(id){
+  delete cart[id];
+  updateCartUI();
+}
+
+function updateCartUI(){
+  const itemsEl = document.getElementById('cartItems');
+  const totalEl = document.getElementById('cartTotal');
+  const countEl = document.getElementById('cartCount');
+  const ids = Object.keys(cart);
+  let total = 0, count = 0;
+
+  if(ids.length===0){
+    itemsEl.innerHTML = '<div class="cart-empty">Cart khali hai. Books add karo!</div>';
+  } else {
+    itemsEl.innerHTML = ids.map(id=>{
+      const b = books.find(x=>x.id==id);
+      const qty = cart[id];
+      total += b.price*qty;
+      count += qty;
+      return `<div class="cart-item">
+        <div>
+          <div class="cart-item-name">${b.title}</div>
+          <div class="cart-item-qty">Qty: ${qty} × Rs.${b.price}</div>
+        </div>
+        <button class="remove-x" onclick="removeFromCart(${id})">Remove</button>
+      </div>`;
+    }).join("");
+  }
+  totalEl.textContent = "Rs. " + total;
+  countEl.textContent = count;
+}
+
+function toggleCart(){
+  document.getElementById('cartDrawer').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+}
+
+function orderOnWhatsapp(){
+  const ids = Object.keys(cart);
+  if(ids.length===0){ alert("Pehle cart mein kuch books daalo!"); return; }
+  let msg = "Assalam o Alaikum, mujhe ye books order karni hain:%0A%0A";
+  let total = 0;
+  ids.forEach(id=>{
+    const b = books.find(x=>x.id==id);
+    const qty = cart[id];
+    total += b.price*qty;
+    msg += `- ${b.title} (x${qty}) — Rs.${b.price*qty}%0A`;
+  });
+  msg += `%0ATotal: Rs.${total}%0A%0AMera naam aur address: `;
+  // NOTE: apna WhatsApp business number yahan daalo (country code ke saath, bina + ke)
+  const phoneNumber = "923053627905";
+  window.open(`https://wa.me/${phoneNumber}?text=${msg}`, "_blank");
+}
+
+renderBooks();
+</script>
+
+</body>
+</html></pre>
+        </body>
+    </html>
